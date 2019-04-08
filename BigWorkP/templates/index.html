@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% import "bootstrap/wtf.html" as wtf %} {% block title %}Blog{% endblock %} {% block page_content %}
+
+<link rel="stylesheet" href="static/buttons.css" type="text/css" />
+
+<body>
+<div id="head">
+    <h1>Welcome, {% if session.get('username') %}{{ session.get('username') }}{% else %}Stranger{% endif %}!
+{% if session.get('username') %}
+<input type="button" value="Lagout" onclick="window.location='/logout'" class="button button-primary button-pill button-small" style="float: right"/>
+{% else %}
+    <input type="button" value="Login" onclick="window.location='/login'" class="button button-glow button-rounded button-raised button-primary" style="float: right"/>
+    <input type="button" value="Register" onclick="window.location='/register'" class="button button-glow button-border button-rounded button-primary" style="float: right"/>
+{% endif %}
+    </h1>
+</div>
+  <ul class="posts">
+    {% for think in thinks %}
+    <li class="post">
+        <div class="post-content">
+            <div class="post-author" onclick="window.location='/User/{{ think[0] }}'">{{ think[0] }}</div>
+            <div class="post-body">{{ think[1] }}</div>
+            <div class="post-date">{{ think[2] }}</div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

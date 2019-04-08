@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+    {% if session.get('sorryname') %} Sorry!The name has exist {% endif %}
+    <form method="POST">
+        {{ wtf.quick_form(form) }}
+    </form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% import "bootstrap/wtf.html" as wtf %} {% block title %}UserPage{% endblock %} {% block page_content %}
+    <link rel="stylesheet" href="static/buttons.css" type="text/css" />
+    <style type="text/css">
+        textarea {width:1000px;height:400px;resize:none; }
+    </style>
+{{ username }} says:<br/>
+{% for think in thethink %}
+{{ think[1] }}
+{% endfor %}
+<br/>
+{% if username==session.get('username') %}
+<form method="POST">
+    <textarea name="mythink"  required ></textarea>
+    <input type="button" value="Register" onclick="window.location='/register'" class="button button-glow button-border button-rounded button-primary" />
+</form>
+{% else %} we are different{% endif %}
+{% endblock %}
