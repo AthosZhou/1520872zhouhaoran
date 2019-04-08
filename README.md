@@ -1,4 +1,4 @@
-# 1520872zhouhaoran
+# flask
 python项目 基于flask框架 数据库sqlite
 效果如下：
 ![](/img/1.png)
